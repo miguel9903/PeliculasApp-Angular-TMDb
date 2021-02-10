@@ -1,0 +1,17 @@
+<div class="row">
+    <div (click)="verPelicula(movie.id)" class="col-md-3 mb-4 movie-card" *ngFor="let movie of movies">
+        <img [src]="movie.poster_path | poster" [alt]="movie.title"
+             class="img-fluid poster">
+        <h3 class="mt-2">{{ movie.title }}</h3>
+        <div class="d-flex justify-content-between">
+            <div>
+               <span class="text-muted">
+                Calificación: 
+               </span>
+            </div>
+            <div class="text-warning">
+                <i class="far fa-star mr-1"></i><span>{{ movie.vote_average | number:'1.1-2' }}</span>
+            </div>
+        </div>
+    </div>
+</div>

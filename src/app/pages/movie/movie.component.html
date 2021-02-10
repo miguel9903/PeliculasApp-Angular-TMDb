@@ -1,0 +1,37 @@
+<div class="text-center p-3" *ngIf="loading">
+    <div class="text-white">
+        <i class="fas fa-spinner fa-spin"></i> Cargando...
+    </div>
+</div>
+<div class="row" *ngIf="movie">
+    <div class="col-12 col-sm-5 p-2 text-center">
+        <img class="img-fluid poster" [src]="movie.poster_path | poster" [alt]="movie.title">
+    </div>
+    <div class="col-12 col-sm-7">  
+        <div class="text-white d-flex justify-content-between">
+         <h1>{{ movie.title }}</h1>
+        </div>
+        <div class="text-warning d-flex justify-content-between">
+            <div>
+                <span class="text-muted mr-2">Calificación: </span>
+                <i class="far fa-star mr-1"></i> {{ movie.vote_average }}
+            </div>
+            <div>
+                <span class="text-muted">{{ movie.release_date }}</span>
+            </div>
+        </div>
+        <hr class="bg-white">
+        <p class="text-justify">{{ movie.overview }}</p>
+        <div class="text-right">
+            <button (click)="regresar()" class="btn btn-primary">
+                <i class="fas fa-chevron-left mr-1"></i> Regresar
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="cast.length > 0">
+    <div class="col my-3">
+        <h2 class="mb-4">Reparto</h2>
+        <app-cast-slideshow [cast]="cast"></app-cast-slideshow>
+    </div>
+</div>

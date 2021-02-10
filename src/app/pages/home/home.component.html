@@ -1,0 +1,18 @@
+<div class="row" *ngIf="movies.length > 0">
+    <div class="col">
+        <h1>Cartelera</h1>
+        <app-slideshow [movies]="moviesSlideshow"></app-slideshow>
+    </div>
+</div>
+<div class="row">
+    <div class="col my-4">
+        <h2 class="my-3">Peliculas</h2>
+        <div class="text-center p-3" *ngIf="loading">
+            <div class="text-white">
+                <i class="fas fa-spinner fa-spin"></i> Cargando...
+            </div>
+        </div>
+        <app-movies-poster-grid *ngIf="movies.length > 0"
+                                [movies]="movies"></app-movies-poster-grid>
+    </div>
+</div>

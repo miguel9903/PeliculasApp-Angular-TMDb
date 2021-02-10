@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col">
+        <h1>Buscar película: {{ termino }}</h1>
+        <hr>
+        <div class="text-center p-3" *ngIf="loading">
+            <div class="text-white">
+                <i class="fas fa-spinner fa-spin"></i> Cargando...
+            </div>
+        </div>
+        <app-movies-poster-grid *ngIf="movies.length > 0" 
+                                [movies]="movies"></app-movies-poster-grid>
+    </div>
+</div>
